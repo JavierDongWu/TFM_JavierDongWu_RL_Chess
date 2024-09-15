@@ -3,6 +3,7 @@ import chess_agents
 """
 Parameters: play_chess.py
 """
+#All the available players, put in a list for a easier change of player 
 players_to_choose = [                                  #Index
     "random",                                          #  0
     "stockfish",                                       #  1
@@ -29,11 +30,11 @@ players_to_choose = [                                  #Index
     "montecarlo_model_sto_op_greedy_rew_5_c2",         # 22
 ]
     
-number_of_games = 100
-print_boards = False
-first_move_random = False
+number_of_games = 100     #Total number of games played
+print_boards = False      #If you want every move to be printed in the console
+first_move_random = False #If you want the randomize the start of the matches
 
-#Choose a player from the list, player_0 has the white pieces, while the player_1 has the black pieces
+#Choose a player from the list using the index number, player_0 has the white pieces, while the player_1 has the black pieces
 player_0 = players_to_choose[5]
 player_1 = players_to_choose[0]
 
@@ -42,12 +43,16 @@ player_1 = players_to_choose[0]
 """
 Parameters: neural_training_models.py
 """
+#The opponent the agent will face in the training, it can be GreedyAgent, StockfishAgent or MinMaxAlphaBetaIncrementalEvaluationAgent
 opponent = chess_agents.GreedyAgent()
 #opponent = chess_agents.StockfishAgent(depth=6, parameters={"Minimum Thinking Time": 20, "UCI_LimitStrength": False, "UCI_Elo": 1350})
 #opponent = chess_agents.MinMaxAlphaBetaIncrementalEvaluationAgent(1)
-reward = "greedy" #It can be either greedy, minmax or stockfish
 
-iterations = 5
-c = 2 # For the neural network update frecuency
+#The type of reward given, it can be "greedy", "minmax" or "stockfish"
+reward = "greedy"
 
-name = "name"
+iterations = 5             #The number of iterations, games played needed to finish the training
+timelimit_seconds = 360000 #The maximum time the training can last, in seconds
+c = 2                      #For the neural network update frecuency, in number of iterations
+
+name = "name" #The name of the trained model

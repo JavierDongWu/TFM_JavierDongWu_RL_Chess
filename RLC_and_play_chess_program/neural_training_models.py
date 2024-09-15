@@ -12,11 +12,9 @@ player.model.summary()
 
 w_before = learner.agent.model.get_weights()
 
-iterations = gv.iterations
-c = gv.c # For the neural network updates
-print(iterations, c)
+print(gv.iterations, gv.c)
 def test_train():
-    learner.learn(iters=iterations, timelimit_seconds=360000 , c=c)
+    learner.learn(iters=gv.iterations, timelimit_seconds=gv.timelimit_seconds , c=gv.c)
 
 
 test_train()
