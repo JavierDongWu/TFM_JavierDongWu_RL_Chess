@@ -207,7 +207,7 @@ if __name__ == "__main__":
             train_action_mask(env_fn, steps = num_step_to_train, seed = training_seed, saved_model = None, **env_kwargs)
 
         # Evaluate 100 games against a random agent (winrate should be ~80%)
-        env_kwargs = {"logger": use_logger, "evaluate": True, "num_previous_board": gv.NumPreviousBoards}
+        env_kwargs = {"logger": use_logger, "evaluate": True, "num_previous_boards": gv.NumPreviousBoards}
         eval_action_mask(env_fn, num_games=100, render_mode=None, **env_kwargs)
     elif only_evaluate_model:
         eval_action_mask(env_fn, num_games=100, render_mode=None, **env_kwargs)
